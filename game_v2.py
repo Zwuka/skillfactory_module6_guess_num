@@ -18,19 +18,24 @@ def random_predict(number: int = 1) -> int:
         int: Число попыток
     """
     count = 0
-    up_bond = 101
+    up_bond = 101 
     low_bond = 0
     predict_number = up_bond//2
+
     while True:
         count += 1
+        
         if predict_number > number:
             up_bond = predict_number
             predict_number = (up_bond+low_bond)//2
+        
         elif predict_number < number:
             low_bond = predict_number
             predict_number = (up_bond+low_bond)//2
+        
         if number == predict_number:
-            break  # выход из цикла если угадали
+            break  
+    
     return count
 
 
